@@ -1,20 +1,20 @@
 {
   "icon": "/icons/128.png",
-  "title": "Spencer's OneDrive Index",
+  "title": "Esherloon's Drive (에셜룬의 드라이브)",
   "maxItems": 100,
   "googleFont": "Inter",
   "googleFontWeights": [
     "400",
     "700"
   ],
-  "footer": "Powered by <a class=\"hover:border-b-2\" href=\"https://github.com/spencerwooo/onedrive-vercel-index\" target=\"_blank\" rel=\"noopener noreferrer\">onedrive-vercel-index</a>. Made with ❤ by SpencerWoo.",
+  "footer": "Esherloon's Server (에셜룬의 서버) | <a class=\"hover:border-b-2\" href=\"https://esherloon.com/\" target=\"_blank\" rel=\"noopener noreferrer\">esherloon.com</a>",
   "protectedRoutes": [
     "/🌞 Private folder/u-need-a-password",
     "/🥟 Some test files/Protected route"
   ],
   "contact": {
-    "email": "mailto:spencer.wushangbo@gmail.com",
-    "telegram": "https://t.me/realSpencerWoo",
-    "github": "https://github.com/spencerwooo/onedrive-vercel-index"
+    "email": "mailto:jinoo2005609@esherloon.com",
+    "telegram": "",
+    "github": "https://github.com/jinoo2005609"
   }
 }
