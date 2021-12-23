@@ -2,19 +2,21 @@
   "icon": "/icons/128.png",
   "title": "Esherloon's Drive (에셜룬의 드라이브)",
   "maxItems": 100,
-  "googleFont": "Inter",
-  "googleFontWeights": [
-    "400",
-    "700"
+  "googleFontSans": "Inter",
+  "googleFontMono": "Fira Mono",
+  "googleFontLinks": [
+    "https://fonts.googleapis.com/css2?family=Fira+Mono&family=Inter:wght@400;700&display=swap"
   ],
   "footer": "Esherloon's Server (에셜룬의 서버) | <a class=\"hover:border-b-2\" href=\"https://esherloon.com/\" target=\"_blank\" rel=\"noopener noreferrer\">esherloon.com</a>",
   "protectedRoutes": [
     "/🌞 Private folder/u-need-a-password",
     "/🥟 Some test files/Protected route"
   ],
-  "contact": {
-    "email": "mailto:jinoo2005609@esherloon.com",
-    "telegram": "",
-    "github": "https://github.com/jinoo2005609"
-  }
+  "email": "mailto:jinoo2005609@gmail.com",
+  "links": [
+    {
+      "name": "GitHub",
+      "link": "https://github.com/jinoo2005609/onedrive-vercel-index"
+    }
+  ]
 }
