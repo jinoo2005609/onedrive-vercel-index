@@ -10,7 +10,7 @@ const Breadcrumb: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =>
       return (
         <div className="dark:text-gray-300 no-scrollbar flex pb-4 overflow-x-scroll text-sm text-gray-600">
           <div className="hover:opacity-80 flex-shrink-0 p-1 transition-all duration-75">
-            <Link href="/">🚩 Home</Link>
+            <Link href="/">🚩 홈</Link>
           </div>
           {path.map((q: string, i: number) => (
             <div key={i} className="flex items-center flex-shrink-0">
@@ -35,7 +35,7 @@ const Breadcrumb: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =>
   return (
     <div className="dark:text-gray-300 hover:opacity-80 pb-4 text-sm text-gray-600 transition-all duration-75">
       <div className="p-1">
-        <Link href="/">🚩 Home</Link>
+        <Link href="/">🚩 홈</Link>
       </div>
     </div>
   )

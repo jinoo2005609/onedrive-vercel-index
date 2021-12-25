@@ -36,7 +36,7 @@ const PDFPreview: FunctionComponent<{ file: any }> = ({ file }) => {
             onLoadSuccess={onDocumentLoadSuccess}
             loading={<Loading loadingText={loadingText} />}
             onLoadProgress={({ loaded, total }) => {
-              setLoadingText(`Loading PDF ${Math.round((loaded / total) * 100)}%`)
+              setLoadingText(`PDF를 불러오는 중... ${Math.round((loaded / total) * 100)}%`)
             }}
             options={{
               cMapUrl: `//cdn.jsdelivr.net/npm/pdfjs-dist@${pdfjs.version}/cmaps/`,

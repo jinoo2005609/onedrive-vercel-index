@@ -34,7 +34,7 @@ const Navbar = () => {
       localStorage.removeItem(r)
     })
 
-    toast.success('Cleared all tokens')
+    toast.success('모든 토큰을 제거했어요.')
     setTimeout(() => {
       router.reload()
     }, 1000)
@@ -76,7 +76,7 @@ const Navbar = () => {
               className="hover:bg-gray-200 dark:text-white dark:hover:bg-gray-700 flex items-center p-2 space-x-2 rounded"
               onClick={() => setIsOpen(true)}
             >
-              <span className="text-sm">Logout</span>
+              <span className="text-sm">로그아웃</span>
               <FontAwesomeIcon icon="sign-out-alt" />
             </button>
           )}
@@ -113,12 +113,11 @@ const Navbar = () => {
             >
               <div className="dark:bg-gray-900 inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white rounded-lg">
                 <Dialog.Title className="dark:text-gray-100 text-lg font-bold text-gray-900">
-                  Clear all tokens?
+                  모든 토큰을 제거할까요?
                 </Dialog.Title>
                 <div className="mt-2">
                   <p className="text-sm text-gray-500">
-                    These tokens are used to authenticate yourself into password protected folders, clearing them means
-                    that you will need to re-enter the passwords again.
+                    이러한 토큰들은 비밀번호로 보호된 폴더에 접근할 때 사용돼요. 제거하면 비밀번호를 다시 입력해야 해요.
                   </p>
                 </div>
 
@@ -136,14 +135,14 @@ const Navbar = () => {
                     className="focus:outline-none focus:ring focus:ring-blue-300 hover:bg-blue-400 inline-flex items-center justify-center px-4 py-2 mr-3 space-x-2 text-white bg-blue-500 rounded"
                     onClick={() => setIsOpen(false)}
                   >
-                    Cancel
+                    취소
                   </button>
                   <button
                     className="focus:outline-none focus:ring focus:ring-red-300 hover:bg-red-400 inline-flex items-center justify-center px-4 py-2 space-x-2 text-white bg-red-500 rounded"
                     onClick={() => clearTokens()}
                   >
                     <FontAwesomeIcon icon={['far', 'trash-alt']} />
-                    <span>Clear all</span>
+                    <span>모두 제거</span>
                   </button>
                 </div>
               </div>

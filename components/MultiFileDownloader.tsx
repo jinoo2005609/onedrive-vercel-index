@@ -15,7 +15,7 @@ export function DownloadingToast(router: NextRouter, progress?: string) {
   return (
     <div className="flex items-center space-x-2">
       <div className="w-56">
-        <span>Downloading {progress ? `${progress}%` : 'selected files...'}</span>
+        <span>{progress ? `다운로드 중 ${progress}%` : '선택된 파일을 다운로드하는 중이에요.'}</span>
 
         <div className="relative mt-2">
           <div className="overflow-hidden h-1 flex rounded bg-gray-100">

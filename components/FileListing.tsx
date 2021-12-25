@@ -188,7 +188,7 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
   if (!data) {
     return (
       <div className="dark:bg-gray-900 p-3 bg-white rounded">
-        <Loading loadingText="Loading ..." />
+        <Loading loadingText="불러오는 중..." />
       </div>
     )
   }
@@ -295,11 +295,11 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
         downloadMultipleFiles({ toastId, router, files, folder })
           .then(() => {
             setTotalGenerating(false)
-            toast.success('Finished downloading selected files.', { id: toastId })
+            toast.success('선택된 파일을 다운로드했어요.', { id: toastId })
           })
           .catch(() => {
             setTotalGenerating(false)
-            toast.error('Failed to download selected files.', { id: toastId })
+            toast.error('선택된 파일 다운로드에 실패했어요.', { id: toastId })
           })
       }
     }
@@ -323,34 +323,34 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
       downloadTreelikeMultipleFiles({ toastId, router, files, basePath: path, folder: name })
         .then(() => {
           setFolderGenerating({ ...folderGenerating, [id]: false })
-          toast.success('Finished downloading folder.', { id: toastId })
+          toast.success('폴더를 다운로드했어요.', { id: toastId })
         })
         .catch(() => {
           setFolderGenerating({ ...folderGenerating, [id]: false })
-          toast.error('Failed to download folder.', { id: toastId })
+          toast.error('폴더 다운로드에 실패했어요.', { id: toastId })
         })
     }
 
     return (
       <div className="dark:bg-gray-900 dark:text-gray-100 bg-white rounded">
         <div className="dark:border-gray-700 grid items-center grid-cols-12 px-3 space-x-2 border-b border-gray-200">
-          <div className="md:col-span-6 col-span-12 font-bold py-3">Name</div>
-          <div className="md:block hidden col-span-3 font-bold">Last Modified</div>
-          <div className="md:block hidden font-bold">Size</div>
-          <div className="md:block hidden font-bold">Actions</div>
+          <div className="md:col-span-6 col-span-12 font-bold py-3">이름</div>
+          <div className="md:block hidden col-span-3 font-bold">수정한 날짜</div>
+          <div className="md:block hidden font-bold">크기</div>
+          <div className="md:block hidden font-bold">액션</div>
           <div className="md:block hidden font-bold">
             <div className="md:flex dark:text-gray-400 hidden p-1 text-gray-700">
               <Checkbox
                 checked={totalSelected}
                 onChange={toggleTotalSelected}
                 indeterminate={true}
-                title={'Select files'}
+                title={'파일 선택'}
               />
               {totalGenerating ? (
-                <Downloading title="Downloading selected files, refresh page to cancel" />
+                <Downloading title="선택된 파일을 다운로드하는 중이에요. 취소하려면 새로고침하세요." />
               ) : (
                 <button
-                  title="Download selected files"
+                  title="선택된 파일 다운로드"
                   className="hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded cursor-pointer disabled:text-gray-400 disabled:dark:text-gray-600 disabled:hover:bg-white disabled:hover:dark:bg-gray-900"
                   disabled={totalSelected === 0}
                   onClick={handleSelectedDownload}
@@ -393,7 +393,7 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
                   render: <FontAwesomeIcon icon={['fas', 'copy']} />,
                   onClick: i => {
                     clipboard.copy(i.alt ? `${getBaseUrl()}/api?path=${path + '/' + i.alt}&raw=true` : '')
-                    toast('Copied image permanent link to clipboard.', { icon: '👌' })
+                    toast('이미지 링크를 복사했어요.', { icon: '👌' })
                   },
                 },
               ])
@@ -421,20 +421,20 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
             {c.folder ? (
               <div className="md:flex dark:text-gray-400 hidden p-1 text-gray-700">
                 <span
-                  title="Copy folder permalink"
+                  title="폴더 링크 복사"
                   className="hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded cursor-pointer"
                   onClick={() => {
                     clipboard.copy(`${getBaseUrl()}${path === '/' ? '' : path}/${encodeURIComponent(c.name)}`)
-                    toast('Copied folder permalink.', { icon: '👌' })
+                    toast('폴더 링크를 복사했어요.', { icon: '👌' })
                   }}
                 >
                   <FontAwesomeIcon icon={['far', 'copy']} />
                 </span>
                 {folderGenerating[c.id] ? (
-                  <Downloading title="Downloading folder, refresh page to cancel" />
+                  <Downloading title="폴더를 다운로드하는 중이에요. 취소하려면 새로고침하세요." />
                 ) : (
                   <span
-                    title="Download folder"
+                    title="폴더 다운로드"
                     className="hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded cursor-pointer"
                     onClick={() => {
                       const p = `${path === '/' ? '' : path}/${encodeURIComponent(c.name)}`
@@ -448,19 +448,19 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
             ) : (
               <div className="md:flex dark:text-gray-400 hidden p-1 text-gray-700">
                 <span
-                  title="Copy raw file permalink"
+                  title="RAW 파일 링크 복사"
                   className="hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded cursor-pointer"
                   onClick={() => {
                     clipboard.copy(
                       `${getBaseUrl()}/api?path=${path === '/' ? '' : path}/${encodeURIComponent(c.name)}&raw=true`
                     )
-                    toast.success('Copied raw file permalink.')
+                    toast.success('RAW 파일 링크를 복사했어요.')
                   }}
                 >
                   <FontAwesomeIcon icon={['far', 'copy']} />
                 </span>
                 <a
-                  title="Download file"
+                  title="파일 다운로드"
                   className="hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded cursor-pointer"
                   href={c['@microsoft.graph.downloadUrl']}
                 >
@@ -475,7 +475,7 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
                 <Checkbox
                   checked={selected[c.id] ? 2 : 0}
                   onChange={() => toggleItemSelected(c.id)}
-                  title="Select file"
+                  title="파일 선택"
                 />
               )}
             </div>
@@ -496,7 +496,7 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
             >
               {isLoadingMore ? (
                 <>
-                  <span>Loading ...</span>{' '}
+                  <span>불러오는 중...</span>{' '}
                   <svg
                     className="animate-spin w-5 h-5 mr-3 -ml-1"
                     xmlns="http://www.w3.org/2000/svg"
@@ -519,10 +519,10 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
                   </svg>
                 </>
               ) : isReachingEnd ? (
-                <span>No more files</span>
+                <span>더 이상 파일이 없어요.</span>
               ) : (
                 <>
-                  <span>Load more</span>
+                  <span>더 불러오기</span>
                   <FontAwesomeIcon icon="chevron-circle-down" />
                 </>
               )}
@@ -588,7 +588,7 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
       <>
         <div className="dark:bg-gray-900 p-3 bg-white rounded">
           <FourOhFour
-            errorMsg={`Preview for file ${fileName} is not available, download directly with the button below.`}
+            errorMsg={`${fileName} 파일에 대한 미리보기가 없어요. 아래 버튼을 눌러 다운로드 하세요.`}
           />
         </div>
         <div className="mt-4">
@@ -600,7 +600,7 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
 
   return (
     <div className="dark:bg-gray-900 p-3 bg-white rounded">
-      <FourOhFour errorMsg={`Cannot preview ${path}`} />
+      <FourOhFour errorMsg={`${path} 를 미리볼 수 없어요.`} />
     </div>
   )
 }

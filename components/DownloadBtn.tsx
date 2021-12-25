@@ -20,17 +20,17 @@ const DownloadBtn: FunctionComponent<{ downloadUrl: string }> = ({ downloadUrl }
         rel="noopener noreferrer"
       >
         <FontAwesomeIcon icon="file-download" />
-        <span>Download</span>
+        <span>다운로드</span>
       </a>
       <button
         className="focus:outline-none focus:ring focus:ring-yellow-300 hover:bg-yellow-400 flex items-center justify-center flex-shrink-0 w-48 px-4 py-2 mb-2 space-x-4 text-white bg-yellow-500 rounded"
         onClick={() => {
           clipboard.copy(`${getBaseUrl()}/api?path=${asPath}&raw=true`)
-          toast.success('Copied direct link to clipboard.')
+          toast.success('Direct 링크를 클립보드에 복사했어요.')
         }}
       >
         <FontAwesomeIcon icon="copy" />
-        <span>Copy direct link</span>
+        <span>링크 복사</span>
       </button>
     </div>
   )

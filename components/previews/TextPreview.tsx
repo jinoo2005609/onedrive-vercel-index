@@ -17,7 +17,7 @@ const TextPreview: FunctionComponent<{ file: any }> = ({ file }) => {
   if (!data) {
     return (
       <div className="dark:bg-gray-900 p-3 bg-white rounded">
-        <Loading loadingText="Loading file content..." />
+        <Loading loadingText="파일 내용 불러오는 중..." />
       </div>
     )
   }

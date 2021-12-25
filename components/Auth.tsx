@@ -19,11 +19,10 @@ const Auth: FunctionComponent<{ redirect: string }> = ({ redirect }) => {
       <div className="md:w-5/6 w-3/4 mx-auto">
         <Image src={'/images/no-looking.png'} alt="authenticate" width={912} height={912} />
       </div>
-      <div className="dark:text-gray-100 text-lg font-bold text-gray-900">Enter Password</div>
+      <div className="dark:text-gray-100 text-lg font-bold text-gray-900">비밀번호 입력</div>
 
       <p className="text-sm text-gray-500">
-        This route (the folder itself and the files inside) is password protected. If you know the password, please
-        enter it below.
+        이 경로는 (폴더 및 내부 파일) 비밀번호로 보호되어 있어요. 비밀번호를 입력해 주세요.
       </p>
 
       <div className="flex items-center space-x-2">

@@ -75,7 +75,7 @@ const MarkdownPreview: FunctionComponent<{ file: any; path: string; standalone?:
   if (!data) {
     return (
       <div className={standalone ? 'bg-white dark:bg-gray-900 rounded p-3' : ''}>
-        <Loading loadingText="Loading file content..." />
+        <Loading loadingText="파일 내용 불러오는 중..." />
       </div>
     )
   }
