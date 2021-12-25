@@ -9,7 +9,7 @@ const FourOhFour: FunctionComponent<{ errorMsg: string }> = ({ errorMsg }) => {
       </div>
       <div className="mt-6 text-gray-500 max-w-xl mx-auto">
         <div className="text-2xl font-bold mb-8">
-          이런, &apos;s a <span className="underline decoration-wavy decoration-red-500">404</span> 오류예요.
+          이런, <span className="underline decoration-wavy decoration-red-500">404</span> 오류예요.
         </div>
         <div className="font-mono border border-gray-400/20 rounded p-2 mb-4 text-sm bg-gray-50 dark:bg-gray-800">
           {errorMsg}
