@@ -17,11 +17,11 @@ const Auth: FunctionComponent<{ redirect: string }> = ({ redirect }) => {
   return (
     <div className="md:my-10 flex flex-col max-w-sm mx-auto space-y-4">
       <div className="md:w-5/6 w-3/4 mx-auto">
-        <Image src={'/images/no-looking.png'} alt="authenticate" width={912} height={912} />
+        <Image src={'/images/fabulous-wapmire-weekdays.png'} alt="authenticate" width={912} height={912} />
       </div>
       <div className="dark:text-gray-100 text-lg font-bold text-gray-900">비밀번호 입력</div>
 
-      <p className="text-sm text-gray-500">
+      <p className="text-sm text-gray-500 font-medium">
         이 경로는 (폴더 및 내부 파일) 비밀번호로 보호되어 있어요. 비밀번호를 입력해 주세요.
       </p>
 
@@ -43,7 +43,7 @@ const Auth: FunctionComponent<{ redirect: string }> = ({ redirect }) => {
           }}
         />
         <button
-          className="focus:outline-none focus:ring focus:ring-blue-300 hover:bg-blue-400 px-4 py-2 text-white bg-blue-500 rounded"
+          className="focus:outline-none focus:ring focus:ring-blue-400 hover:bg-blue-500 px-4 py-2 text-white bg-blue-600 rounded"
           onClick={() => {
             setPersistedToken(token)
             router.reload()

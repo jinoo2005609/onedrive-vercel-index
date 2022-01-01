@@ -30,11 +30,11 @@ import CodePreview from './previews/CodePreview'
 import OfficePreview from './previews/OfficePreview'
 import AudioPreview from './previews/AudioPreview'
 import VideoPreview from './previews/VideoPreview'
-import DownloadBtn from './DownloadBtn'
+import DownloadButtonGroup from './DownloadBtnGtoup'
+import PDFPreview from './previews/PDFPreview'
 
 // Disabling SSR for some previews (image gallery view, and PDF view)
 const ReactViewer = dynamic(() => import('react-viewer'), { ssr: false })
-const PDFPreview = dynamic(() => import('./previews/PDFPreview'), { ssr: false })
 const EPUBPreview = dynamic(() => import('./previews/EPUBPreview'), { ssr: false })
 
 /**
@@ -179,6 +179,14 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
   const { data, error, size, setSize } = useProtectedSWRInfinite(path)
 
   if (error) {
+    console.log(error)
+
+    // If error includes 403 which means the user has not completed initial setup, redirect to OAuth page
+    if (error.message.includes('403')) {
+      router.push('/onedrive-vercel-index-oauth/step-1')
+      return <div></div>
+    }
+
     return (
       <div className="dark:bg-gray-900 p-3 bg-white rounded">
         {error.message.includes('401') ? <Auth redirect={path} /> : <FourOhFour errorMsg={error.message} />}
@@ -592,7 +600,7 @@ const FileListing: FunctionComponent<{ query?: ParsedUrlQuery }> = ({ query }) =
           />
         </div>
         <div className="mt-4">
-          <DownloadBtn downloadUrl={downloadUrl} />
+          <DownloadButtonGroup downloadUrl={downloadUrl} />
         </div>
       </>
     )
