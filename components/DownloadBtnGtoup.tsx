@@ -53,7 +53,7 @@ export const DownloadButton = ({
       onClick={onClickCallback}
     >
       {btnIcon && <FontAwesomeIcon icon={btnIcon} />}
-      {btnImage && <Image src={btnImage} alt={btnImage} width={20} height={20} />}
+      {btnImage && <Image src={btnImage} alt={btnImage} width={20} height={20} priority />}
       <span>{btnText}</span>
     </button>
   )
@@ -84,7 +84,7 @@ const DownloadButtonGroup: React.FC<{ downloadUrl: string }> = ({ downloadUrl })
           clipboard.copy(`${getBaseUrl()}/api?path=${asPath}&raw=true`)
           toast.success('Direct 링크를 클립보드에 복사했어요.')
         }}
-        btnColor="yellow"
+        btnColor="pink"
         btnText="링크 복사"
         btnIcon="copy"
         btnTitle="클립보드에 링크를 복사합니다."
