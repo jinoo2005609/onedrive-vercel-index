@@ -32,6 +32,7 @@ import AudioPreview from './previews/AudioPreview'
 import VideoPreview from './previews/VideoPreview'
 import DownloadButtonGroup from './DownloadBtnGtoup'
 import PDFPreview from './previews/PDFPreview'
+import URLPreview from './previews/URLPreview'
 import { DownloadBtnContainer, PreviewContainer } from './previews/Containers'
 
 // Disabling SSR for some previews (image gallery view, and PDF view)
@@ -137,7 +138,7 @@ const Checkbox: FC<{
   return (
     <span
       title={title}
-      className="hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded cursor-pointer"
+      className="hover:bg-gray-300 dark:hover:bg-gray-600 p-1.5 inline-flex items-center rounded cursor-pointer"
       onClick={handleClick}
     >
       <input
@@ -350,10 +351,14 @@ const FileListing: FC<{ query?: ParsedUrlQuery }> = ({ query }) => {
             <div className="md:block hidden col-span-3 font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest text-xs">
               수정한 날짜
             </div>
-            <div className="md:block hidden font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest text-xs">크기</div>
-            <div className="md:block hidden font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest text-xs">액션</div>
             <div className="md:block hidden font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest text-xs">
-              <div className="md:flex dark:text-gray-400 hidden px-1.5 py-1 text-gray-700">
+              크기
+            </div>
+            <div className="md:block hidden font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest text-xs">
+              액션
+            </div>
+            <div className="md:block hidden font-bold text-gray-600 dark:text-gray-300 uppercase tracking-widest text-xs">
+              <div className="md:flex dark:text-gray-400 hidden p-1.5 text-gray-700">
                 <Checkbox
                   checked={totalSelected}
                   onChange={toggleTotalSelected}
@@ -365,7 +370,7 @@ const FileListing: FC<{ query?: ParsedUrlQuery }> = ({ query }) => {
                 ) : (
                   <button
                     title="선택된 파일 다운로드"
-                    className="hover:bg-gray-300 dark:hover:bg-gray-600 p-2 rounded cursor-pointer disabled:text-gray-400 disabled:dark:text-gray-600 disabled:hover:bg-white disabled:hover:dark:bg-gray-900 disabled:cursor-not-allowed"
+                    className="hover:bg-gray-300 dark:hover:bg-gray-600 p-1.5 rounded cursor-pointer disabled:text-gray-400 disabled:dark:text-gray-600 disabled:hover:bg-white disabled:hover:dark:bg-gray-900 disabled:cursor-not-allowed"
                     disabled={totalSelected === 0}
                     onClick={handleSelectedDownload}
                   >
@@ -460,7 +465,7 @@ const FileListing: FC<{ query?: ParsedUrlQuery }> = ({ query }) => {
                   )}
                 </div>
               ) : (
-                <div className="md:flex dark:text-gray-400 hidden px-1.5 py-1 text-gray-700">
+                <div className="md:flex dark:text-gray-400 hidden p-1.5 text-gray-700">
                   <span
                     title="RAW 파일 링크 복사"
                     className="hover:bg-gray-300 dark:hover:bg-gray-600 px-1.5 py-1 rounded cursor-pointer"
@@ -475,17 +480,15 @@ const FileListing: FC<{ query?: ParsedUrlQuery }> = ({ query }) => {
                   </span>
                   <a
                     title="파일 다운로드"
-                    className="hover:bg-gray-300 dark:hover:bg-gray-600 p-1 rounded cursor-pointer"
+                    className="hover:bg-gray-300 dark:hover:bg-gray-600 px-1.5 py-1 rounded cursor-pointer"
                     href={c['@microsoft.graph.downloadUrl']}
                   >
                     <FontAwesomeIcon icon={['far', 'arrow-alt-circle-down']} />
                   </a>
                 </div>
               )}
-              <div className="md:flex dark:text-gray-400 hidden p-1 text-gray-700">
-                {c.folder || c.name === '.password' ? (
-                  ''
-                ) : (
+              <div className="md:flex dark:text-gray-400 hidden p-1.5 text-gray-700">
+                {!c.folder && !(c.name === '.password') && (
                   <Checkbox
                     checked={selected[c.id] ? 2 : 0}
                     onChange={() => toggleItemSelected(c.id)}
@@ -592,6 +595,9 @@ const FileListing: FC<{ query?: ParsedUrlQuery }> = ({ query }) => {
 
         case preview.epub:
           return <EPUBPreview file={file} />
+
+        case preview.url:
+          return <URLPreview file={file} />
 
         default:
           return <PreviewContainer>{fileName}</PreviewContainer>
