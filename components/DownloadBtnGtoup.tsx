@@ -72,13 +72,13 @@ const DownloadButtonGroup: React.FC<{ downloadUrl: string }> = ({ downloadUrl })
         btnIcon="file-download"
         btnTitle="OneDrive를 통해 파일을 바로 다운로드합니다."
       />
-      <DownloadButton
+      {/* <DownloadButton
         onClickCallback={() => window.open(`/api/proxy?url=${encodeURIComponent(downloadUrl)}`)}
         btnColor="teal"
         btnText="프록시 다운로드"
         btnIcon="download"
         btnTitle="서버리스를 통해 프록시된 파일을 다운로드합니다."
-      />
+      /> */}
       <DownloadButton
         onClickCallback={() => {
           clipboard.copy(`${getBaseUrl()}/api?path=${asPath}&raw=true`)
