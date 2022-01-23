@@ -71,7 +71,7 @@ const Navbar = () => {
           >
             <div className="flex items-center space-x-2">
               <FontAwesomeIcon icon="search" />
-              <span className="text-sm font-medium">Search ...</span>
+              <span className="text-sm font-medium">검색 ...</span>
             </div>
 
             <div className="flex items-center space-x-1">
