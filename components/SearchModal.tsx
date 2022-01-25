@@ -95,7 +95,7 @@ function SearchResultItemTemplate({
           <div className="text-sm font-medium leading-8">{driveItem.name}</div>
           <div
             className={`text-xs font-mono opacity-60 truncate overflow-hidden ${
-              itemDescription === 'Loading ...' && 'animate-pulse'
+              itemDescription === '불러오는 중...' && 'animate-pulse'
             }`}
           >
             {itemDescription}
@@ -114,7 +114,7 @@ function SearchResultItemLoadRemote({ result }: { result: OdSearchResult[number]
   }
   if (!data) {
     return (
-      <SearchResultItemTemplate driveItem={result} driveItemPath={''} itemDescription={'Loading ...'} disabled={true} />
+      <SearchResultItemTemplate driveItem={result} driveItemPath={''} itemDescription={'불러오는 중...'} disabled={true} />
     )
   }
 
