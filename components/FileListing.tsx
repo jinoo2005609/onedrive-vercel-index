@@ -297,7 +297,7 @@ const FileListing: FC<{ query?: ParsedUrlQuery }> = ({ query }) => {
       const files = (async function* () {
         for await (const { meta: c, path: p, isFolder, error } of traverseFolder(path)) {
           if (error) {
-            toast.error(`Failed to download folder ${p}: ${error.status} ${error.message} Skipped it to continue.`)
+            toast.error(`폴더 다운로드에 실패했어요. ${p}: ${error.status} ${error.message} 계속하기 위해 건너뛰었어요.`)
             continue
           }
           yield {
