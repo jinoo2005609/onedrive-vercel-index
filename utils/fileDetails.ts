@@ -20,12 +20,12 @@ export const humanFileSize = (size: number) => {
  * @returns Human readable form of the file or folder last modified date
  */
 export const formatModifiedDateTime = (lastModifedDateTime: string) => {
-  return new Date(lastModifedDateTime).toLocaleString('en-US', {
+  return new Date(lastModifedDateTime).toLocaleString('ko-KR', {
     year: 'numeric',
     month: '2-digit',
     day: '2-digit',
     hour: '2-digit',
     minute: '2-digit',
-    hour12: false,
+    hour12: true,
   })
 }
