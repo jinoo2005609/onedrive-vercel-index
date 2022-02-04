@@ -27,7 +27,7 @@ export function DownloadingToast(router: NextRouter, progress?: string) {
         className="p-2 rounded bg-red-500 hover:bg-red-400 text-white focus:outline-none focus:ring focus:ring-red-300"
         onClick={() => router.reload()}
       >
-        Cancel
+        취소
       </button>
     </div>
   )
