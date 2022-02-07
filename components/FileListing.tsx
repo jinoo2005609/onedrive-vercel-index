@@ -307,7 +307,7 @@ const FileListing: FC<{ query?: ParsedUrlQuery }> = ({ query }) => {
       <>
         <Toaster />
 
-        {layout.name === 'Grid' ? <FolderGridLayout {...folderProps} /> : <FolderListLayout {...folderProps} />}
+        {layout.name === '격자' ? <FolderGridLayout {...folderProps} /> : <FolderListLayout {...folderProps} />}
 
         {!onlyOnePage && (
           <div className="rounded-b bg-white dark:bg-gray-900 dark:text-gray-100">

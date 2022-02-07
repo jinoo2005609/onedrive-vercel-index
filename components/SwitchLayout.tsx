@@ -5,7 +5,7 @@ import { Listbox, Transition } from '@headlessui/react'
 
 import useLocalStorage from '../utils/useLocalStorage'
 
-export const layouts: Array<{ id: number; name: 'Grid' | 'List'; icon: IconProp }> = [
+export const layouts: Array<{ id: number; name: '격자' | '목록'; icon: IconProp }> = [
   { id: 1, name: '목록', icon: 'th-list' },
   { id: 2, name: '격자', icon: 'th' },
 ]
